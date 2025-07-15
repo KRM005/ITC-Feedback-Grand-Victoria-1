@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ITC India 2025 – Session Feedback (Grand Victoria)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #010D24;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+      padding-bottom: 50px;
+    }
+
+    body::before {
+      content: "";
+      background-image: url('backgroundimage.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .header {
+      background-color: #00011e;
+      padding: 30px 10px;
+    }
+
+    .header img {
+      width: 150px;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px;
+    }
+
+    .conference-title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .conference-details {
+      font-size: 1.5rem;
+      margin-top: 8px;
+      white-space: pre;
+    }
+
+    .marquee-bar {
+      background-color: #00011e;
+      padding: 20px 0;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .live-title {
+      color: #ff4444;
+      font-weight: bold;
+      font-size: 1.8rem;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .button {
+      display: block;
+      margin: 12px auto;
+      padding: 20px;
+      width: 95%;
+      max-width: 600px;
+      font-size: 1.8rem;
+      line-height: 1.6;
+      border-radius: 8px;
+      background-color: #0074F1;
+      color: white;
+      text-align: left;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+      transform: scale(1.02);
+    }
+
+    .no-live {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: #ffcccb;
+    }
+
+    @media (max-width: 600px) {
+      .live-title {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        padding: 0 1rem;
+      }
+
+      .conference-title {
+        font-size: 1.7rem;
+      }
+
+      .conference-details {
+        font-size: 1.3rem;
+      }
+
+      .button {
+        font-size: 2rem;
+        padding: 30px;
+        line-height: 2.2;
+      }
+
+      .header img {
+        width: 120px;
+      }
+
+      .marquee-bar {
+        padding: 24px 8px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
+
+      marquee {
+        font-size: 1.3rem;
+        padding: 0 12px;
+      }
+
+      .no-live {
+        font-size: 1.4rem;
+        padding: 0 1rem;
+      }
+    }
+
+    .site-footer {
+      background-color: #00011e;
+      padding: 20px 10px;
+      color: #ffffff;
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .site-footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .site-footer {
+        font-size: 1.1rem;
+        padding: 24px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="logo.png" alt="ITC India Logo" />
+    <div class="conference-title">9<sup>th</sup> IEEE International Test Conference India 2025</div>
+    <div class="conference-details">JULY 20–22, 2025    RADISSON BLU, MARATHALLI, BENGALURU</div>
+  </div>
+
+  <div class="marquee-bar">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <div id="liveNow" class="live-title"></div>
+    </marquee>
+  </div>
+
+  <div id="liveButtons"></div>
+  <div id="noLiveMessage" class="no-live"></div>
+
+  <footer class="site-footer">
+    <p>For more info: <a href="https://itctestweekindia.org/" target="_blank">https://itctestweekindia.org/</a></p>
+    <p>2025 © ITC Test Week India | All rights reserved</p>
+  </footer>
+
+  <script>
+    const sessions = [
+      {
+        title: "Tutorial - Track 1(a) - Advanced Power MOSFET Testing",
+        date: "2025-07-15",
+        start: "09:15",
+        end: "23:59",
+        formUrl: "https://forms.gle/YOURFORM1",
+        speaker: "Manoj Pachaiyan, Kalyana Sundaram Chandran and Senthilkumar Dhamodharan",
+        venue: "Grand Victoria 1"
+      },
+      {
+        title: "Tutorial - Track 1(a) - Electrical Failure Analysis",
+        date: "2025-07-20",
+        start: "11:15",
+        end: "12:45",
+        formUrl: "https://forms.gle/YOURFORM2",
+        speaker: "Lakshmanan Balasubramanian",
+        venue: "Grand Victoria 1"
+      },
+      {
+        title: "Tutorial - Track 1(b) - Advances in Test - Part I",
+        date: "2025-07-20",
+        start: "13:45",
+        end: "15:15",
+        formUrl: "https://forms.gle/YOURFORM3",
+        speaker: "Adit Singh",
+        venue: "Grand Victoria 1"
+      },
+      {
+        title: "Tutorial - Track 1(b) - Advances in Test - Part II",
+        date: "2025-07-20",
+        start: "15:45",
+        end: "17:15",
+        formUrl: "https://forms.gle/YOURFORM4",
+        speaker: "Adit Singh",
+        venue: "Grand Victoria 1"
+      },
+      {
+        title: "Keynote: Transformative Design for Test Technologies",
+        date: "2025-07-21",
+        start: "09:30",
+        end: "10:00",
+        formUrl: "https://forms.gle/YOURFORM5",
+        speaker: "Janusz Rajski",
+        venue: "Grand Victoria"
+      },
+      {
+        title: "Keynote: Future of AI Hardware",
+        date: "2025-07-21",
+        start: "10:00",
+        end: "10:30",
+        formUrl: "https://forms.gle/YOURFORM6",
+        speaker: "Raja Swaminathan",
+        venue: "Grand Victoria"
+      },
+      {
+        title: "Keynote: Enabling Efficient Prototyping",
+        date: "2025-07-21",
+        start: "10:30",
+        end: "11:00",
+        formUrl: "https://forms.gle/YOURFORM7",
+        speaker: "Rajesh V",
+        venue: "Grand Victoria"
+      },
+      {
+        title: "Paper Session 1: AI in Test",
+        date: "2025-07-21",
+        start: "11:30",
+        end: "13:00",
+        formUrl: "https://forms.gle/YOURFORM8",
+        speaker: "Multiple Authors",
+        venue: "Grand Victoria 1"
+      },
+      {
+        title: "Paper Session 4: Aging & Escapes",
+        date: "2025-07-21",
+        start: "14:00",
+        end: "15:30",
+        formUrl: "https://forms.gle/YOURFORM9",
+        speaker: "Multiple Authors",
+        venue: "Grand Victoria 1"
+      },
+      {
+        title: "Distinguished Address: Synopsys",
+        date: "2025-07-21",
+        start: "16:00",
+        end: "16:25",
+        formUrl: "https://forms.gle/YOURFORM10",
+        speaker: "Adam Cron",
+        venue: "Grand Victoria"
+      },
+      {
+        title: "Panel Discussion: Semiconductor Test Ecosystem",
+        date: "2025-07-21",
+        start: "16:25",
+        end: "17:30",
+        formUrl: "https://forms.gle/YOURFORM11",
+        speaker: "Multiple Speakers",
+        venue: "Grand Victoria"
+      },
+      {
+        title: "Keynote: The Right Testing Strategy",
+        date: "2025-07-22",
+        start: "09:30",
+        end: "10:00",
+        formUrl: "https://forms.gle/YOURFORM12",
+        speaker: "Nitza Basoco",
+        venue: "Grand Victoria"
+      },
+      {
+        title: "Keynote: Rethinking Silicon Test",
+        date: "2025-07-22",
+        start: "10:00",
+        end: "10:30",
+        formUrl: "https://forms.gle/YOURFORM13",
+        speaker: "Dr. Sreejit Chakravarty",
+        venue: "Grand Victoria"
+      },
+      {
+        title: "Keynote: From Silicon to Solutions",
+        date: "2025-07-22",
+        start: "10:30",
+        end: "11:00",
+        formUrl: "https://forms.gle/YOURFORM14",
+        speaker: "Suresh Babu K",
+        venue: "Grand Victoria"
+      },
+      {
+        title: "Industry Session 1",
+        date: "2025-07-22",
+        start: "11:30",
+        end: "13:00",
+        formUrl: "https://forms.gle/YOURFORM15",
+        speaker: "Kort Longenbach, Raj Singam, Pradeep Nair",
+        venue: "Grand Victoria 1"
+      },
+      {
+        title: "Industry Session 2",
+        date: "2025-07-22",
+        start: "14:00",
+        end: "15:30",
+        formUrl: "https://forms.gle/YOURFORM16",
+        speaker: "Prakash Talawar, Dr. Pramod Variyam, Dr. Shiva Kumar Kotikalapudi",
+        venue: "Grand Victoria 1"
+      },
+      {
+        title: "Distinguished Address Series: Transformation of DFT",
+        date: "2025-07-22",
+        start: "16:00",
+        end: "17:15",
+        formUrl: "https://forms.gle/YOURFORM17",
+        speaker: "Jais Abraham, Pradeep Nagaraj, Srinivas Vooka",
+        venue: "Grand Victoria"
+      }
+    ];
+
+    function getISTNow() {
+      return new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+    }
+
+    function render() {
+      const now = getISTNow();
+      const live = document.getElementById("liveButtons");
+      const title = document.getElementById("liveNow");
+      const noLive = document.getElementById("noLiveMessage");
+
+      live.innerHTML = "";
+      let liveCount = 0;
+
+      sessions.forEach(s => {
+        const sessionDate = new Date(`${s.date}T00:00:00`);
+        const [sh, sm] = s.start.split(":").map(Number);
+        const [eh, em] = s.end.split(":").map(Number);
+        const start = new Date(sessionDate);
+        start.setHours(sh, sm);
+        const end = new Date(sessionDate);
+        end.setHours(eh, em + 10);
+
+        if (now >= start && now <= end) {
+          const html = `
+            <strong>${s.title}</strong><br>
+            🗓️ ${s.date}<br>
+            ⏰ ${s.start} – ${s.end}<br>
+            👨‍💼 ${s.speaker}<br>
+            📍 ${s.venue}
+          `;
+          const a = document.createElement("a");
+          a.className = "button";
+          a.href = s.formUrl;
+          a.target = "_blank";
+          a.innerHTML = html;
+          live.appendChild(a);
+          liveCount++;
+        }
+      });
+
+      if (liveCount > 0) {
+        title.innerHTML = "🔴 LIVE NOW: Click on the session you participated in to provide your valuable feedback. The link will remain active for 10 minutes post-session.";
+        noLive.innerHTML = "";
+      } else {
+        title.innerHTML = "";
+        noLive.innerHTML = "⚠️ Feedback is not open for any sessions currently.";
+      }
+    }
+
+    render();
+    setInterval(render, 60000);
+  </script>
+</body>
+</html>
